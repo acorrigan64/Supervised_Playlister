@@ -41,10 +41,18 @@ All you have to do is add your songs that need to be classified in the <i style=
 
 The new songs will then be placed into one of the previosuly made playlists in the <i style="color:blue">/genres/</i> folder.
 
+<h2>Dependancies</h2>
+The project uses the following python packages
 
-The project involved the use of the following technologies:
-
-- Python
+- Librosa
+- Keras
+- SKlearn
 - Pandas
-- TQDM
-- Matplotlib
+- Numpy
+- OS
+- Pickle
+
+<h2>Future Developments</h2>
+<h3>Integration for spotify playlists</h3>
+<h3>Integration with spotify's music database for better classifiers</h3>
+<h3>An unsupervised playlister!</h3>
