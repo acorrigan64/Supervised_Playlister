@@ -4,7 +4,8 @@ Supervised Playlister
 
 This project uses librosa and a Keras neural network to learn a classifier for your own playlists. Once learned the classifier can then automatically place new songs into the correct playlist.
 
-It can support AIFF, WAV and MP3.
+It currently supports AIFF, WAV and MP3 files. 
+<i>Although Windows operating systems may need to install [FFMPEG](https://ffmpeg.org/) to read mp3 files.</i>
 
 This was created as a lockdown project, please let me know any questions and any bugs with the program!
 
@@ -17,8 +18,8 @@ Step 1: Add your existing playlists
 </h3>
 First your playlist will need to be added, this is after all a supervised classifier!
 
-You will need to create a folder for each playlist in the genre folder in the format: /genres/your_playlist_name
-You can then add all of your songs to the individual playlist folder in the format: /genres/your_playlist_name/your_song
+You will need to create a folder for each playlist in the genre folder in the format: <i style="color:blue">/genres/your_playlist_name</i>
+You can then add all of your songs to the individual playlist folder in the format: <i style="color:blue">/genres/your_playlist_name/your_song</i>
 
 Once everything has been added you then need to run the train.py file, this will create four new files!
 
@@ -26,9 +27,19 @@ Once everything has been added you then need to run the train.py file, this will
 
 <b>encoder.p</b> A pickle file of the encoder. It transforms your playlists to numerical values, this is needed to transform the predictions from the model to an understandable genre.
 
-<b>scaler.p</b> A pickle file used to scale the input data for unseen 
+<b>scaler.p</b> A pickle file used to scale the input data for unseen songs. This is essential as new songs are going to be run through the new classifier, if new songs were not put through same scalar the input weights to the neural network would be wrong.
 
-<b>model.p</b>
+<b>model.p</b> This is the neural network learned from the prior playlists.
+
+All .p (Pickle) files are then loaded for step 2!
+
+
+<h3>Step 2: Testing new songs</h3>
+This is the simpler of the two steps.
+
+All you have to do is add your songs that need to be classified in the <i style="color:blue">/New_songs/</i> folder and run the program.
+
+The new songs will then be placed into one of the previosuly made playlists in the <i style="color:blue">/genres/</i> folder.
 
 
 The project involved the use of the following technologies:
